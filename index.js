@@ -5,7 +5,8 @@ const typeDefs = gql(fs.readFileSync("./schema.gql", "utf-8"));
 
 const resolvers = {
   Query: {
-    hello: () => "world!",
+    // hello: () => "world!",
+    // name: () => "Thanh",
   },
 };
 

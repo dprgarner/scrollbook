@@ -1,3 +1,46 @@
 type Query {
-  hello: String
+  allMyFriends: [Person]
 }
+
+# Disclaimer: this was deliberately implemented incorrectly as a binary value
+# for pedagogical reasons. The schema is intended to be evolved to accommodate
+# non-binary values at a later date.
+enum Gender {
+  MALE
+  FEMALE
+}
+
+type Person {
+  id: String
+  name: String
+  age: Int # positive?
+  gender: Gender
+  location: String
+  friends: [Person]
+  posts: [Post]
+}
+
+type Post {
+  id: String
+  author: Person
+  content: String
+  date: String
+  comments: [Comment]
+}
+
+type Comment {
+  id: String
+  inReplyTo: Post
+  author: Person
+  content: String
+  date: String
+}
+
+# Requirements:
+
+# all my friends
+# sort by name & age
+
+# most recent 10 posts on timeline
+
+# comments on post
